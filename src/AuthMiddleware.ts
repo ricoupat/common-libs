@@ -10,9 +10,10 @@ export class AuthMiddleware {
     }
 
     public authentification = (req: Request, res: Response, next: NextFunction) => {
+        const validKeys = this.keys.loadKeys();
         const apiKey = req.header("X-API-KEY");
 
-        if (!apiKey || !Object.values(this.keys).includes(apiKey)) {
+        if (!apiKey || !Object.values(validKeys).includes(apiKey)) {
             return res.status(401).json({ error: "Unauthorized" });
         }
 
