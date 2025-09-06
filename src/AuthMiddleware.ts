@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import ApiKeys from "./config/ApiKeys";
 
 
-export default class AuthMiddleware {
+export class AuthMiddleware {
     private keys: ApiKeys;
 
     constructor() {
