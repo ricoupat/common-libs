@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import ApiKeys from "./config/ApiKeys";
+import ApiKeys from "../config/ApiKeys";
 
 
 export class AuthMiddleware {
@@ -14,6 +14,7 @@ export class AuthMiddleware {
         const apiKey = req.header("X-API-KEY");
 
         if (!apiKey || !Object.values(validKeys).includes(apiKey)) {
+            console.warn(`Unauthorized request with key: ${apiKey}`);
             return res.status(401).json({ error: "Unauthorized" });
         }
 

@@ -1,1 +1,2 @@
-export { AuthMiddleware } from './AuthMiddleware';
+export { AuthMiddleware } from './middlewares/AuthMiddleware';
+export { HttpClient } from './HttpClient';
